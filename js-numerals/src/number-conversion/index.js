@@ -49,8 +49,11 @@ function underTenThousand(N) {
 }
 
 export default function convertNumber(N) {
+  
+  // Above this number there are number representation issues 
+  // which feels unnecessary to tackle for this assignment
   if (N >= Math.pow(10, 21)) {
-    throw new Error("Too large number: N < 10^21");
+    throw new Error("Too large number. N must be less than 10^21");
   }
 
   if (!N) {

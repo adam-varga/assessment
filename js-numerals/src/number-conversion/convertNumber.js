@@ -89,5 +89,3 @@ export default function convertNumber(N) {
     return result;
   }
 }
-
-window.convertNumber = convertNumber;

@@ -2,7 +2,6 @@ import React from "react";
 import {
   Container,
   Title,
-  NumberInput,
   InputContainer,
   SubmitButton,
   ConvertedLarge,
@@ -10,7 +9,8 @@ import {
   ErrorMessage,
   ErrorMessageLarge,
 } from "./Form.styles";
-import convertNumber from "../number-conversion";
+import NumberInput from "./NumberInput";
+import convertNumber from "../number-conversion/convertNumber";
 
 export default class Form extends React.Component {
   state = {
@@ -21,8 +21,10 @@ export default class Form extends React.Component {
 
   submit = () => {
     try {
+      const converted = convertNumber(parseInt(this.state.inputValue));
+
       this.setState({
-        converted: convertNumber(parseInt(this.state.inputValue)),
+        converted,
       });
     } catch (error) {
       this.setState({ converted: null, error: error.message });
@@ -48,10 +50,12 @@ export default class Form extends React.Component {
               value={this.state.inputValue}
               onChange={this.onInputChange}
             ></NumberInput>
-            <SubmitButton onClick={this.submit}>Convert</SubmitButton>
+            <SubmitButton onClick={this.submit} data-testid="submit-button">
+              Convert
+            </SubmitButton>
           </InputContainer>
-          {this.state.error && <ErrorMessage>{this.state.error}</ErrorMessage>}
-          <ConvertedSmall>{this.state.converted}</ConvertedSmall>
+          {this.state.error && <ErrorMessage data-testid='error'>{this.state.error}</ErrorMessage>}
+          <ConvertedSmall data-testid='converted'>{this.state.converted}</ConvertedSmall>
         </Container>
       </React.Fragment>
     );

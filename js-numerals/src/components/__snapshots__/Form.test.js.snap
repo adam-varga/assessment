@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <h1
+    class="sc-AxheI cjWyKD"
+  />
+  <h1
+    class="sc-AxmLO ilIuBR"
+  />
+  <div
+    class="sc-AxjAm cJZJJt"
+  >
+    <h1
+      class="sc-AxirZ fvBeIn"
+    >
+      If you're wondering how to say a number using English words, just enter it in the box and hit CONVERT!
+    </h1>
+    <div
+      class="sc-AxiKw hCRdrJ"
+    >
+      <input
+        class="sc-AxhCb dmlFAv"
+        data-testid="number-input"
+        value=""
+      />
+      <button
+        class="sc-AxhUy igtKpQ"
+        data-testid="submit-button"
+      >
+        Convert
+      </button>
+    </div>
+    <span
+      class="sc-AxgMl eswhUR"
+      data-testid="converted"
+    />
+  </div>
+</DocumentFragment>
+`;

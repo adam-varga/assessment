@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React from "react";
 
 export const Container = styled.div`
   padding: 50px;
@@ -28,7 +27,7 @@ export const InputContainer = styled.div`
   margin: 20px 0;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   display: block;
   border-radius: 0;
   padding: 15px;
@@ -54,24 +53,6 @@ export const SubmitButton = styled.button`
     outline: none;
   }
 `;
-
-export class NumberInput extends React.Component {
-  handleInputChange = (event) => {
-    const {
-      currentTarget: { value },
-    } = event;
-
-    if (/^[0-9]*$/.test(value) || value === "") {
-      const { onChange } = this.props;
-
-      onChange && typeof onChange === "function" && onChange(event);
-    }
-  };
-
-  render() {
-    return <Input onChange={this.handleInputChange} value={this.props.value} />;
-  }
-}
 
 export const ConvertedSmall = styled.span`
   flex-grow: 1;

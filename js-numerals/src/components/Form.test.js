@@ -82,6 +82,9 @@ describe("error message", () => {
   let queryByTestId;
 
   beforeEach(() => {
+
+    // Set up error state before each
+
     const renderResult = render(<Form />);
 
     getByTestId = renderResult.getByTestId;

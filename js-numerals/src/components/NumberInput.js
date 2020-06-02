@@ -1,5 +1,12 @@
 import React from "react";
 import { Input } from "./Form.styles";
+import PropTypes from "prop-types";
+
+const NUMBER_REGEXP = /^[0-9]*$/;
+
+function testNumberValue(value) {
+  return NUMBER_REGEXP.test(value) || value === "";
+}
 
 export default class NumberInput extends React.Component {
   handleInputChange = (event) => {
@@ -7,10 +14,8 @@ export default class NumberInput extends React.Component {
       currentTarget: { value },
     } = event;
 
-    if (/^[0-9]*$/.test(value) || value === "") {
-      const { onChange } = this.props;
-
-      onChange && typeof onChange === "function" && onChange(event);
+    if (testNumberValue(value)) {
+      this.props.onChange(event);
     }
   };
 
@@ -24,3 +29,20 @@ export default class NumberInput extends React.Component {
     );
   }
 }
+
+NumberInput.propTypes = {
+  value: function (props, propName, componentName) {
+    if (typeof props.value !== "string") {
+      return new Error(
+        `Failed prop type: Invalid prop  \`${propName}\` of type  \`${typeof props.value}\` supplied to \`${componentName}\`, expected \`string\``
+      );
+    }
+
+    if (!testNumberValue(props.value)) {
+      return new Error(
+        `Failed prop type: Invalid prop  \`${propName}\` supplied to \`${componentName}\`, expected characters to be only numbers ([0-9]).`
+      );
+    }
+  },
+  onChange: PropTypes.func.isRequired,
+};

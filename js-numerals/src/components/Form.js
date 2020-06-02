@@ -54,8 +54,12 @@ export default class Form extends React.Component {
               Convert
             </SubmitButton>
           </InputContainer>
-          {this.state.error && <ErrorMessage data-testid='error'>{this.state.error}</ErrorMessage>}
-          <ConvertedSmall data-testid='converted'>{this.state.converted}</ConvertedSmall>
+          {this.state.error && (
+            <ErrorMessage data-testid="error">{this.state.error}</ErrorMessage>
+          )}
+          <ConvertedSmall data-testid="converted">
+            {this.state.converted}
+          </ConvertedSmall>
         </Container>
       </React.Fragment>
     );

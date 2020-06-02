@@ -20,12 +20,12 @@ exports[`renders correctly 1`] = `
       class="sc-AxiKw hCRdrJ"
     >
       <input
-        class="sc-AxhCb dmlFAv"
+        class="sc-AxhCb fljeGO"
         data-testid="number-input"
         value=""
       />
       <button
-        class="sc-AxhUy igtKpQ"
+        class="sc-AxhUy cSSvnF"
         data-testid="submit-button"
       >
         Convert

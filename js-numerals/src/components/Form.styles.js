@@ -36,6 +36,7 @@ export const Input = styled.input`
   border: 1px solid black;
   flex-grow: 1;
   height: 100%;
+  margin: 0;
   &:focus {
     outline: none;
   }
@@ -49,6 +50,7 @@ export const SubmitButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   color: black;
+  margin: 0;
   &:focus {
     outline: none;
   }

@@ -81,7 +81,7 @@ export default function convertNumber(N) {
     }
 
     if (remainder) {
-      result += `${remainder < 100 ? " and " : " "}${underTenThousand(
+      result += `${remainder < 100 ? " and " : " "}${underThousand(
         remainder
       )}`;
     }

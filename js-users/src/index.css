@@ -5,3 +5,9 @@ body {
 * {
   box-sizing: border-box;
 }
+
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}

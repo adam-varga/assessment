@@ -1,5 +1,10 @@
-import { GET_USERS__SUCCEEDED } from "./actions";
 import { combineReducers } from "redux";
+import {
+  GET_USERS__SUCCEEDED,
+  UPDATE_USER__SUCCEEDED,
+  CREATE_USER__SUCCEEDED,
+} from "./actions";
+import { REQUEST_STATUSES } from "../constants";
 
 // USERS
 
@@ -13,6 +18,28 @@ function users(state = {}, action) {
         userIds,
       };
     }
+    case UPDATE_USER__SUCCEEDED: {
+      const { user } = action.payload;
+
+      return {
+        ...state,
+        usersById: {
+          ...state.usersById,
+          [user.id]: user,
+        },
+      };
+    }
+    case CREATE_USER__SUCCEEDED: {
+      const { user } = action.payload;
+
+      return {
+        userIds: [user.id, ...state.userIds],
+        usersById: {
+          ...state.usersById,
+          [user.id]: user,
+        },
+      };
+    }
     default:
       return state;
   }
@@ -24,6 +51,7 @@ const REQUEST_REGEXPS = {
   START: /__REQUEST$/,
   SUCCESS: /__SUCCEEDED$/,
   FAILURE: /__FAILED$/,
+  RESET: /__RESET$/,
 };
 
 function getRequestActionType(actionType, regExp) {
@@ -35,7 +63,7 @@ function requests(state = {}, action) {
     return {
       ...state,
       [action.type]: {
-        loading: true,
+        status: REQUEST_STATUSES.PENDING,
       },
     };
   }
@@ -44,7 +72,7 @@ function requests(state = {}, action) {
     return {
       ...state,
       [getRequestActionType(action.type, REQUEST_REGEXPS.SUCCESS)]: {
-        loading: false,
+        status: REQUEST_STATUSES.SUCCESS,
       },
     };
   }
@@ -53,8 +81,18 @@ function requests(state = {}, action) {
     return {
       ...state,
       [getRequestActionType(action.type, REQUEST_REGEXPS.FAILURE)]: {
-        loading: false,
+        status: REQUEST_STATUSES.FAILURE,
         error: action.payload.error,
+      },
+    };
+  }
+
+  if (action.type.match(REQUEST_REGEXPS.RESET)) {
+    return {
+      ...state,
+      [getRequestActionType(action.type, REQUEST_REGEXPS.RESET)]: {
+        status: null,
+        error: null,
       },
     };
   }

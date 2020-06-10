@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createAction, GET_USERS__REQUEST } from "../../store/actions";
-import { List, Container } from "./UserList.styles";
+import { List, Container, NewButton, Actions } from "./UserList.styles";
 import User from "./User";
 import ReactPaginate from "react-paginate";
+import { USER_STATUSES, REQUEST_STATUSES } from "../../constants";
+import get from "lodash.get";
+import PropTypes from "prop-types";
 
 class UserList extends React.Component {
   state = {
@@ -26,14 +29,18 @@ class UserList extends React.Component {
 
     return (
       <Container>
-        {this.props.loading && "LOADING"}
+        {!this.props.status ||
+          (this.props.status === REQUEST_STATUSES.PENDING && "Loading...")}
         {this.props.users && (
           <React.Fragment>
+            <Actions>
+              <NewButton to="/new">+ New</NewButton>
+            </Actions>
             <List>
               {this.props.users
                 .slice(startIndex, startIndex + 10)
                 .map((user) => (
-                  <User key={user.id} {...user}></User>
+                  <User key={user.id} user={user}></User>
                 ))}
             </List>
             <ReactPaginate
@@ -56,11 +63,21 @@ class UserList extends React.Component {
   }
 }
 
+UserList.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      first_name: PropTypes.string.isRequired,
+      last_name: PropTypes.string.isRequired,
+      status: PropTypes.oneOf(Object.values(USER_STATUSES)).isRequired,
+    })
+  ),
+  status: PropTypes.oneOf(Object.values(REQUEST_STATUSES)),
+  getUsers: PropTypes.func.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
-    loading:
-      state.requests[GET_USERS__REQUEST] &&
-      state.requests[GET_USERS__REQUEST].loading,
+    status: get(state, `requests.${GET_USERS__REQUEST}.status`),
     users:
       state.users.userIds &&
       state.users.userIds.map((id) => state.users.usersById[id]),

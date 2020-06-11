@@ -6,41 +6,46 @@ import {
   ToggleUserStatusButton,
   Actions,
   EditButton,
+  Name,
+  CreatedAt,
 } from "./UserList.styles";
 import { connect } from "react-redux";
 import { createAction, UPDATE_USER__REQUEST } from "../../store/actions";
 import { USER_STATUSES, REQUEST_STATUSES } from "../../constants";
+import { FiUnlock, FiLock, FiEdit2 } from "react-icons/fi";
 import get from "lodash.get";
 
-const statusButtonTextMap = {
-  [USER_STATUSES.LOCKED]: "Activate",
-  [USER_STATUSES.ACTIVE]: "Lock",
+const statusButtonIconMap = {
+  [USER_STATUSES.LOCKED]: FiUnlock,
+  [USER_STATUSES.ACTIVE]: FiLock,
 };
 
 class User extends React.Component {
   render() {
     const { first_name, last_name, created_at, status, id } = this.props.user;
 
+    const StatusButtonIcon = statusButtonIconMap[status];
+
     return (
       <Item>
         <Info {...this.props.user}>
-          {`${first_name} ${last_name}: ${new Date(
-            created_at
-          ).toLocaleDateString()}`}
+          <Name>{`${first_name} ${last_name}`}</Name>
+          <CreatedAt>{new Date(created_at).toLocaleDateString()}</CreatedAt>
         </Info>
         <Actions>
           <ToggleUserStatusButton
             status={status}
+            active={status === USER_STATUSES.LOCKED}
             onClick={this.props.toggleUserStatus}
             disabled={this.props.requestStatus === REQUEST_STATUSES.PENDING}
           >
-            {statusButtonTextMap[status]}
+            <StatusButtonIcon />
           </ToggleUserStatusButton>
           <EditButton
             to={`/edit/${id}`}
             disabled={this.props.requestStatus === REQUEST_STATUSES.PENDING}
           >
-            Edit
+            <FiEdit2 />
           </EditButton>
         </Actions>
       </Item>

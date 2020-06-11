@@ -15,8 +15,10 @@ import {
   Title,
   ButtonContainer,
   SaveButton,
+  Inputs,
   CancelButton,
 } from "./UserForm.styles";
+import { FiLoader, FiSave, FiCheck, FiX } from "react-icons/fi";
 import FormInput from "./FormInput";
 import get from "lodash.get";
 import { USER_STATUSES, REQUEST_STATUSES } from "../../constants";
@@ -26,10 +28,10 @@ const MODES = {
   CREATE: "CREATE",
 };
 
-const saveButtonText = {
-  default: "Save",
-  [REQUEST_STATUSES.PENDING]: "Saving..",
-  [REQUEST_STATUSES.SUCCESS]: "Saved!",
+const saveButtonIcons = {
+  default: FiSave,
+  [REQUEST_STATUSES.PENDING]: FiLoader,
+  [REQUEST_STATUSES.SUCCESS]: FiCheck,
 };
 
 class UserForm extends React.Component {
@@ -108,6 +110,9 @@ class UserForm extends React.Component {
       saveRequestStatus === REQUEST_STATUSES.PENDING ||
       saveRequestStatus === REQUEST_STATUSES.SUCCESS;
 
+    const SaveButtonIcon =
+      saveButtonIcons[saveRequestStatus] || saveButtonIcons["default"];
+
     return (
       <Backdrop onClick={this.close}>
         <Popover onClick={(e) => e.stopPropagation()}>
@@ -115,35 +120,39 @@ class UserForm extends React.Component {
           {isLoading && "Loading..."}
           {!isLoading && (
             <React.Fragment>
-              <FormInput
-                label="First name"
-                placeholder="Enter first name"
-                attribute="first_name"
-                onChange={this.onInputChange}
-                value={this.state.first_name}
-                error={get(errors, "first_name")}
-                disabled={formDisabled}
-              ></FormInput>
+              <Inputs>
+                <FormInput
+                  label="First name"
+                  placeholder="Enter first name"
+                  attribute="first_name"
+                  onChange={this.onInputChange}
+                  value={this.state.first_name}
+                  error={get(errors, "first_name")}
+                  disabled={formDisabled}
+                ></FormInput>
 
-              <FormInput
-                label="Last name"
-                placeholder="Enter last name"
-                attribute="last_name"
-                onChange={this.onInputChange}
-                value={this.state.last_name}
-                error={get(errors, "last_name")}
-                disabled={formDisabled}
-              ></FormInput>
+                <FormInput
+                  label="Last name"
+                  placeholder="Enter last name"
+                  attribute="last_name"
+                  onChange={this.onInputChange}
+                  value={this.state.last_name}
+                  error={get(errors, "last_name")}
+                  disabled={formDisabled}
+                ></FormInput>
+              </Inputs>
               <ButtonContainer>
-                <CancelButton onClick={this.close}>Cancel</CancelButton>
+                <CancelButton onClick={this.close}>
+                  <FiX />
+                </CancelButton>
                 <SaveButton
                   disabled={formDisabled}
+                  loading={saveRequestStatus === REQUEST_STATUSES.PENDING}
                   onClick={
                     mode === MODES.EDIT ? this.updateUser : this.createUser
                   }
                 >
-                  {saveButtonText[saveRequestStatus] ||
-                    saveButtonText["default"]}
+                  <SaveButtonIcon />
                 </SaveButton>
               </ButtonContainer>
             </React.Fragment>

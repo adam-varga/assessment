@@ -1,9 +1,55 @@
+html {
+  font-size: 14px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
 body {
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  color: #302e35;
+  height: 100%;
+  background-size: cover;
+  background: #deddde;
+}
+
+@media (min-width: 769px) {
+  body {
+    background: linear-gradient(
+      180deg,
+      #deddde 0,
+      #deddde 80%,
+      rgba(233, 233, 234, 1) 100%
+    );
+  }
+}
+
+#root {
+  overflow: auto;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
 * {
   box-sizing: border-box;
+}
+
+a,
+button,
+input {
+  font-family: sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 a:focus,

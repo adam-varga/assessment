@@ -1,10 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createAction, GET_USERS__REQUEST } from "../../store/actions";
-import { List, Container, NewButton, Actions } from "./UserList.styles";
+import { List, Container, NewButton, Actions, Title } from "./UserList.styles";
 import User from "./User";
 import ReactPaginate from "react-paginate";
 import { USER_STATUSES, REQUEST_STATUSES } from "../../constants";
+import {
+  FiChevronLeft,
+  FiChevronRight,
+  FiMoreHorizontal,
+  FiUserPlus,
+} from "react-icons/fi";
 import get from "lodash.get";
 import PropTypes from "prop-types";
 
@@ -28,37 +34,41 @@ class UserList extends React.Component {
     const { startIndex } = this.state;
 
     return (
-      <Container>
-        {!this.props.status ||
-          (this.props.status === REQUEST_STATUSES.PENDING && "Loading...")}
-        {this.props.users && (
-          <React.Fragment>
-            <Actions>
-              <NewButton to="/new">+ New</NewButton>
-            </Actions>
-            <List>
-              {this.props.users
-                .slice(startIndex, startIndex + 10)
-                .map((user) => (
-                  <User key={user.id} user={user}></User>
-                ))}
-            </List>
-            <ReactPaginate
-              previousLabel={"previous"}
-              nextLabel={"next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(this.props.users.length / 10)}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={this.handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}
-            />
-          </React.Fragment>
-        )}
-      </Container>
+      <React.Fragment>
+        <Container>
+          {!this.props.status ||
+            (this.props.status === REQUEST_STATUSES.PENDING && "Loading...")}
+          {this.props.users && (
+            <React.Fragment>
+              <Title>Users</Title>
+              <Actions>
+                <NewButton to="/new">
+                  <FiUserPlus />
+                </NewButton>
+              </Actions>
+              <List>
+                {this.props.users
+                  .slice(startIndex, startIndex + 10)
+                  .map((user, index) => (
+                    <User key={user.id} user={user}></User>
+                  ))}
+              </List>
+              <ReactPaginate
+                previousLabel={<FiChevronLeft />}
+                nextLabel={<FiChevronRight />}
+                breakLabel={<FiMoreHorizontal />}
+                pageCount={Math.ceil(this.props.users.length / 10)}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={3}
+                onPageChange={this.handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+              />
+            </React.Fragment>
+          )}
+        </Container>
+      </React.Fragment>
     );
   }
 }

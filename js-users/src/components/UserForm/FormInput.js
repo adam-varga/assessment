@@ -19,7 +19,7 @@ export default function FormInput({
   return (
     <InputContainer>
       <InputLabel>
-        {label}
+        <span>{label}</span>
         <Input
           value={value}
           onChange={(e) => onChange(attribute, e.currentTarget.value)}

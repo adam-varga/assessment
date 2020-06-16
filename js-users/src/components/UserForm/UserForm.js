@@ -89,9 +89,6 @@ class UserForm extends React.Component {
   };
 
   updateUser = () => {
-    console.log("this.updateUser");
-    console.log(this.props.updateUser);
-
     this.props.updateUser({
       ...this.props.user,
       ...this.state,
@@ -150,7 +147,7 @@ class UserForm extends React.Component {
                 </CancelButton>
                 <SaveButton
                   disabled={formDisabled}
-                  loading={saveRequestStatus === REQUEST_STATUSES.PENDING}
+                  isLoading={saveRequestStatus === REQUEST_STATUSES.PENDING}
                   onClick={
                     mode === MODES.EDIT ? this.updateUser : this.createUser
                   }

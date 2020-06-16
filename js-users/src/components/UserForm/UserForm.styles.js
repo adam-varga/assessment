@@ -122,7 +122,7 @@ export const ButtonContainer = styled.div`
 export const SaveButton = styled(Button)`
   margin-left: 10px;
   ${(props) =>
-    props.loading &&
+    props.isLoading &&
     css`
       svg {
         animation: ${rotate} 2s linear infinite;

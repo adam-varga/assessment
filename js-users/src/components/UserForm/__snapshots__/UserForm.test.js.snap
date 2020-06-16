@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create user form renders empty input fields by default regardless of whether users have been loaded 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxiKw hQgxMr"
+  >
+    <div
+      class="sc-AxhCb jnKDwQ"
+    >
+      <h2
+        class="sc-AxhUy dXZGiX"
+      >
+        Create user
+      </h2>
+      <div
+        class="sc-AxgMl gHtrlA"
+      >
+        <div
+          class="sc-AxheI eZozzG"
+        >
+          <label
+            class="sc-Axmtr ezRnLP"
+          >
+            <span>
+              First name
+            </span>
+            <input
+              class="sc-AxmLO dmsnnn"
+              data-testid="input_first_name"
+              placeholder="Enter first name"
+              value=""
+            />
+          </label>
+          <p
+            class="sc-fzozJi fVqnZq"
+          />
+        </div>
+        <div
+          class="sc-AxheI eZozzG"
+        >
+          <label
+            class="sc-Axmtr ezRnLP"
+          >
+            <span>
+              Last name
+            </span>
+            <input
+              class="sc-AxmLO dmsnnn"
+              data-testid="input_last_name"
+              placeholder="Enter last name"
+              value=""
+            />
+          </label>
+          <p
+            class="sc-fzozJi fVqnZq"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-fzoLsD hNSacB"
+      >
+        <button
+          class="sc-AxjAm sc-fzplWN enEGyk"
+          data-testid="cancel-button"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="18"
+              x2="6"
+              y1="6"
+              y2="18"
+            />
+            <line
+              x1="6"
+              x2="18"
+              y1="6"
+              y2="18"
+            />
+          </svg>
+        </button>
+        <button
+          class="sc-AxjAm sc-fzpans grbCNx"
+          data-testid="save-button"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+            />
+            <polyline
+              points="17 21 17 13 7 13 7 21"
+            />
+            <polyline
+              points="7 3 7 8 15 8"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Edit user form after users request returned renders edit form prefilled with user data 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxiKw hQgxMr"
+  >
+    <div
+      class="sc-AxhCb jnKDwQ"
+    >
+      <h2
+        class="sc-AxhUy dXZGiX"
+      >
+        Edit user
+      </h2>
+      <div
+        class="sc-AxgMl gHtrlA"
+      >
+        <div
+          class="sc-AxheI eZozzG"
+        >
+          <label
+            class="sc-Axmtr ezRnLP"
+          >
+            <span>
+              First name
+            </span>
+            <input
+              class="sc-AxmLO dmsnnn"
+              data-testid="input_first_name"
+              placeholder="Enter first name"
+              value="Test"
+            />
+          </label>
+          <p
+            class="sc-fzozJi fVqnZq"
+          />
+        </div>
+        <div
+          class="sc-AxheI eZozzG"
+        >
+          <label
+            class="sc-Axmtr ezRnLP"
+          >
+            <span>
+              Last name
+            </span>
+            <input
+              class="sc-AxmLO dmsnnn"
+              data-testid="input_last_name"
+              placeholder="Enter last name"
+              value="Person"
+            />
+          </label>
+          <p
+            class="sc-fzozJi fVqnZq"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-fzoLsD hNSacB"
+      >
+        <button
+          class="sc-AxjAm sc-fzplWN enEGyk"
+          data-testid="cancel-button"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="18"
+              x2="6"
+              y1="6"
+              y2="18"
+            />
+            <line
+              x1="6"
+              x2="18"
+              y1="6"
+              y2="18"
+            />
+          </svg>
+        </button>
+        <button
+          class="sc-AxjAm sc-fzpans grbCNx"
+          data-testid="save-button"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+            />
+            <polyline
+              points="17 21 17 13 7 13 7 21"
+            />
+            <polyline
+              points="7 3 7 8 15 8"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Edit user form renders loading screen by default 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxiKw hQgxMr"
+  >
+    <div
+      class="sc-AxhCb jnKDwQ"
+    >
+      <h2
+        class="sc-AxhUy dXZGiX"
+      >
+        Edit user
+      </h2>
+      Loading...
+    </div>
+  </div>
+</DocumentFragment>
+`;

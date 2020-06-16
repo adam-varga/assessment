@@ -14,7 +14,7 @@ import {
 import get from "lodash.get";
 import PropTypes from "prop-types";
 
-class UserList extends React.Component {
+export class UserList extends React.Component {
   state = {
     startIndex: 0,
   };
@@ -25,7 +25,7 @@ class UserList extends React.Component {
 
   handlePageClick = (data) => {
     let selected = data.selected;
-    let offset = Math.ceil(selected * 10);
+    let offset = Math.ceil(selected * this.props.pageSize);
 
     this.setState({ startIndex: offset });
   };
@@ -42,14 +42,14 @@ class UserList extends React.Component {
             <React.Fragment>
               <Title>Users</Title>
               <Actions>
-                <NewButton to="/new">
+                <NewButton to="/new" data-testid="new-button">
                   <FiUserPlus />
                 </NewButton>
               </Actions>
               <List>
                 {this.props.users
-                  .slice(startIndex, startIndex + 10)
-                  .map((user, index) => (
+                  .slice(startIndex, startIndex + this.props.pageSize)
+                  .map((user) => (
                     <User key={user.id} user={user}></User>
                   ))}
               </List>
@@ -57,7 +57,9 @@ class UserList extends React.Component {
                 previousLabel={<FiChevronLeft />}
                 nextLabel={<FiChevronRight />}
                 breakLabel={<FiMoreHorizontal />}
-                pageCount={Math.ceil(this.props.users.length / 10)}
+                pageCount={Math.ceil(
+                  this.props.users.length / this.props.pageSize
+                )}
                 marginPagesDisplayed={1}
                 pageRangeDisplayed={3}
                 onPageChange={this.handlePageClick}
@@ -73,6 +75,10 @@ class UserList extends React.Component {
   }
 }
 
+UserList.defaultProps = {
+  pageSize: 10,
+};
+
 UserList.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
@@ -83,6 +89,7 @@ UserList.propTypes = {
   ),
   status: PropTypes.oneOf(Object.values(REQUEST_STATUSES)),
   getUsers: PropTypes.func.isRequired,
+  pageSize: PropTypes.number,
 };
 
 function mapStateToProps(state) {

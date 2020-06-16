@@ -89,6 +89,9 @@ class UserForm extends React.Component {
   };
 
   updateUser = () => {
+    console.log("this.updateUser");
+    console.log(this.props.updateUser);
+
     this.props.updateUser({
       ...this.props.user,
       ...this.state,
@@ -142,7 +145,7 @@ class UserForm extends React.Component {
                 ></FormInput>
               </Inputs>
               <ButtonContainer>
-                <CancelButton onClick={this.close}>
+                <CancelButton onClick={this.close} data-testid="cancel-button">
                   <FiX />
                 </CancelButton>
                 <SaveButton
@@ -151,6 +154,7 @@ class UserForm extends React.Component {
                   onClick={
                     mode === MODES.EDIT ? this.updateUser : this.createUser
                   }
+                  data-testid="save-button"
                 >
                   <SaveButtonIcon />
                 </SaveButton>

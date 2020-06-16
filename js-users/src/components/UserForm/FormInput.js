@@ -26,6 +26,7 @@ export default function FormInput({
           hasError={Boolean(error)}
           placeholder={placeholder}
           disabled={disabled}
+          data-testid={`input_${attribute}`}
         ></Input>
       </InputLabel>
       <InputError>{error}</InputError>

@@ -12,15 +12,6 @@ to {
 }
 `;
 
-const enterUp = keyframes`
-from {
-  transform: translateY(30px);
-}
-to {
-  opacity: 1;
-}
-`;
-
 const fadeIn = keyframes`
 to {
   opacity: 1;
@@ -185,7 +176,6 @@ export const Container = styled.div`
         rgba(222, 221, 222, 1) 49%,
         rgba(222, 221, 222, 1) 100%
       );
-      
     }
 
     li {

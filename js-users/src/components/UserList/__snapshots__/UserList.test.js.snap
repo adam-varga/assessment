@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User list after users request returned renders user list's first page 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fzplWN bvzbOm"
+  >
+    <h1
+      class="sc-AxiKw bcGqyg"
+    >
+      Users
+    </h1>
+    <div
+      class="sc-AxheI kSIgOR"
+    >
+      <a
+        class="sc-AxirZ sc-fzoLsD bJuYFa"
+        data-testid="new-button"
+        href="/new"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+          />
+          <circle
+            cx="8.5"
+            cy="7"
+            r="4"
+          />
+          <line
+            x1="20"
+            x2="20"
+            y1="8"
+            y2="14"
+          />
+          <line
+            x1="23"
+            x2="17"
+            y1="11"
+            y2="11"
+          />
+        </svg>
+      </a>
+    </div>
+    <ul
+      class="sc-fzpans kALogu"
+    >
+      <li
+        class="sc-fzozJi jEWWTR"
+      >
+        <div
+          class="sc-AxhCb kPkMwE"
+          id="1"
+        >
+          <p
+            class="sc-AxhUy bThcWD"
+          >
+            First Person
+          </p>
+          <p
+            class="sc-AxgMl eyrKYH"
+          >
+            1/10/2014
+          </p>
+        </div>
+        <div
+          class="sc-AxheI kSIgOR"
+        >
+          <button
+            class="sc-AxjAm sc-AxmLO gvIrbg"
+            data-testid="toggle-user-status-button_1"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="11"
+                rx="2"
+                ry="2"
+                width="18"
+                x="3"
+                y="11"
+              />
+              <path
+                d="M7 11V7a5 5 0 0 1 9.9-1"
+              />
+            </svg>
+          </button>
+          <a
+            class="sc-AxirZ sc-Axmtr eQgWKs"
+            data-testid="edit-user-button_1"
+            href="/edit/1"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+              />
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li
+        class="sc-fzozJi jEWWTR"
+      >
+        <div
+          class="sc-AxhCb bWMbKK"
+          id="2"
+        >
+          <p
+            class="sc-AxhUy bThcWD"
+          >
+            Second Person
+          </p>
+          <p
+            class="sc-AxgMl eyrKYH"
+          >
+            1/10/2014
+          </p>
+        </div>
+        <div
+          class="sc-AxheI kSIgOR"
+        >
+          <button
+            class="sc-AxjAm sc-AxmLO bgXSKk"
+            data-testid="toggle-user-status-button_2"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="11"
+                rx="2"
+                ry="2"
+                width="18"
+                x="3"
+                y="11"
+              />
+              <path
+                d="M7 11V7a5 5 0 0 1 10 0v4"
+              />
+            </svg>
+          </button>
+          <a
+            class="sc-AxirZ sc-Axmtr eQgWKs"
+            data-testid="edit-user-button_2"
+            href="/edit/2"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+              />
+            </svg>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="previous disabled"
+      >
+        <a
+          aria-disabled="true"
+          role="button"
+          tabindex="0"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="15 18 9 12 15 6"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="active"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Page 2"
+          role="button"
+          tabindex="0"
+        >
+          2
+        </a>
+      </li>
+      <li
+        class="next"
+      >
+        <a
+          aria-disabled="false"
+          role="button"
+          tabindex="0"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="9 18 15 12 9 6"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`User list renders loading screen by default 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fzplWN bvzbOm"
+  >
+    Loading...
+  </div>
+</DocumentFragment>
+`;

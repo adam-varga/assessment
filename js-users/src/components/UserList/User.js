@@ -16,8 +16,8 @@ import { FiUnlock, FiLock, FiEdit2 } from "react-icons/fi";
 import get from "lodash.get";
 
 const statusButtonIconMap = {
-  [USER_STATUSES.LOCKED]: FiUnlock,
-  [USER_STATUSES.ACTIVE]: FiLock,
+  [USER_STATUSES.LOCKED]: FiLock,
+  [USER_STATUSES.ACTIVE]: FiUnlock,
 };
 
 class User extends React.Component {
@@ -34,6 +34,7 @@ class User extends React.Component {
         </Info>
         <Actions>
           <ToggleUserStatusButton
+            data-testid={`toggle-user-status-button_${id}`}
             status={status}
             active={status === USER_STATUSES.LOCKED}
             onClick={this.props.toggleUserStatus}
@@ -43,6 +44,7 @@ class User extends React.Component {
           </ToggleUserStatusButton>
           <EditButton
             to={`/edit/${id}`}
+            data-testid={`edit-user-button_${id}`}
             disabled={this.props.requestStatus === REQUEST_STATUSES.PENDING}
           >
             <FiEdit2 />
